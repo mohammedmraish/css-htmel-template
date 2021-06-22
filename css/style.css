@@ -1,0 +1,778 @@
+/* 
+    1-Common Styles
+    2-General Styles
+    3-Sectoins
+        3.0-Header Section------------------------------------------- 
+        3.1-Home Section--------------------------------------------- 
+        3.2-About Section-------------------------------------------- 
+        3.3-Portfolio Section---------------------------------------- 
+        3.4-offer Section--------------------------------------------
+        3.5-Service Section------------------------------------------ 
+        3.6-Prices Section-------------------------------------------
+        3.7-Team Section--------------------------------------------- 
+        3.8-Blog Page------------------------------------------------ 
+        3.7-Contact Section------------------------------------------ 
+        3.9-Footer Sectoin-------------------------------------------
+*/
+
+
+/* 1- common styles------------------------------------------ */
+/* 
+   -overlay
+   -opacity hover
+   -sectin header
+   -sectoin padding
+   -hover effect 1 (left to right)
+   -hover effect 2 (top to bottom)
+ 
+*/
+.section-header{
+    text-align: center;
+}
+.section-header .section-title{
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+.section-header .line{
+    display: block;
+    width: 70px;
+    height: 4px;
+    margin: auto;
+    margin-bottom: 70px;
+    background: #6195ff;
+}
+.overlay{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    height: 100%;
+    width: 100%;
+}
+.hover-opacity{
+    transition: opacity 0.5s;
+}
+.hover-opacity:hover{
+    opacity: 0.74;
+}
+
+.ltr-effect,
+.ttb-effect{
+    position: relative;
+}
+.ltr-effect:after,
+.ttb-effect:after{
+    position: absolute;
+    content: "";
+    background: #333 ;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: -1;
+}
+.ltr-effect:after{
+    width: 0px; 
+    transition: width 0.5s;
+}
+.ttb-effect:after{
+    height: 0px; 
+    transition: height 0.5s;
+}
+.ltr-effect:hover:after{
+   width: 100%;
+}
+
+.ttb-effect:hover:after{
+   height: 100%;
+}
+
+/* 2- General css style -------------------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box; /*css3 to prevent padding efect the size*/
+}
+body{
+    font-family: 'Varela Round', sans-serif;
+}
+button{
+    font-family: inherit;
+}
+.container{
+    width: 80%;
+
+    margin:auto;
+}
+.clear{
+    clear: both;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: montserrat, sans-serif;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+
+.pd-y{
+    padding: 120px 0;
+}
+
+/* 3.0-Header Sectoin----------------------------------------- */
+
+.header{
+    position: fixed;/* البوزيشن فيكسيد و ابسليوت بخلي العنصر ينكمش و بحولوه الى انلاين بلوك*/
+    
+    /* حل المشكله */
+    width: 100%;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+}
+.header .logo{
+    width: 40%;
+    float: left;
+}
+.header .logo img{
+    width: 20%;
+    margin-top: 10px;
+}
+
+.header .nav{
+    width: 60%;
+    float: left;
+    list-style:none ;
+}
+.header .nav>li{
+    display: inline-block;
+}
+.header .nav> li> a{
+    text-decoration: none;
+    display:block;
+    color: white;
+    padding: 30px 15px;
+    font-size: 16px;
+}
+.header .nav> li> a:after{
+    content: "";
+    display: block;
+    width:  100%;
+    margin-top: -1px;
+    background-color: #6195ff;
+    transition:  0.5s;
+}
+.header .nav> li>a.active:after, 
+.header .nav >li> a:hover:after{
+    height: 3px;
+    margin-top: 3px;
+}
+.dropdown{
+    position: relative;
+}
+.dropdown-menu {
+    position: absolute;
+    background: #6195ff;
+    width: 130px;
+    text-align: center;
+    left: -50%;
+    top: 90%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s,visibilty 0.5s;
+}
+.dropdown-menu a{
+    color: #fff;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+.dropdown:hover .dropdown-menu{
+    opacity: 1;
+    visibility: visible;
+}
+/* 3.1-Home Section---------------------------------------------  */
+
+.home{
+    height:100vh;
+    background-image: url(../images/background/background1.webp);
+    background-size: cover; /*css3*/
+    position: relative;
+}
+.home-content{
+    text-align: center;
+    width: 65%;
+    /* hero image */
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+}
+
+.home .title{
+    color: #fff;
+    font-size:3.5rem;
+    text-transform: uppercase;
+}
+.home .home-desc{
+    margin: 20px 0;
+    color: #fff;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+}
+.home .btn{
+    min-width: 160px;
+    padding: 11px 0;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+.home .btn-start{
+    margin-right:8px;
+    margin-left:8px;
+    background-color: #fff;
+    color: #000;
+}
+.home .btn-learn{
+    margin-right:8px;
+    margin-left:8px;
+    background-color: #6195ff;
+    color: #fff;
+}
+
+/* 3.2-About Section--------------------------------------------  */
+
+.about-item{
+    width: 29%;
+    float: left;
+    text-align:center;
+    margin: 0 2%;
+    border: 1px solid #e8e8e8;
+    padding: 50px 20px;
+}
+.about-item .icon{
+    color: #6195ff;
+    margin-bottom: 15px;
+}
+.about-item-title{
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    transition: color 0.5s ;
+}
+.about-item:hover .about-item-title{
+    color: #fff;
+}
+.about-item-desc{
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: #999;
+}
+.about-item-link{
+    color: #6195ff;
+    text-transform: capitalize;
+}
+
+/* 3.3-Portfolio Section----------------------------------------  */
+
+.portfolio{
+    background: #f9f9f9;
+}
+.portfolio-item{
+    float: left;
+    width: 32%;
+    margin-bottom: 2%;
+    position: relative;
+    padding: 20px;
+}
+.portfolio-item.mg{
+    margin: 0 2%;
+}
+.portfolio-item img{
+    width: 100%;
+}
+.portfolio-item .layer-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+    transition: opacity 0.5s;
+}
+.portfolio-item:hover .layer-content,
+.portfolio-item:hover .layer-info{
+    opacity: 1;
+    visibility: visible;
+    padding-bottom: 30px;
+}
+.layer-content .layer-info{
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    padding-top: 20px;
+    transition: padding-bottom 1s;
+}
+.layer-content-title{
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.layer-content .category{
+    color: #6195ff;
+    font-size: 20px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+.layer-content a i{
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-color: #6195ff;
+    line-height: 36px;/*to center*/
+    color: #fff;
+    border-radius: 3px;
+}
+/* 3.4-offer Section------------------------------------------  */
+.offer-item{
+    width: 30%;
+    float: left;
+    margin-bottom: 20px;
+    border: 1px #e8e8e8 solid;
+    padding: 30px 15px 30px 70px;
+    position: relative;
+}
+.offer-item.mg{
+    margin: 0 5%;
+}
+.offer-item .icon{
+    position: absolute;
+    top: 30px;
+    left:15px;
+    color: #6195ff;
+}
+.offer-item-title{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+
+    transition: color 0.5s;
+}
+.offer-item:hover .offer-item-title{
+    color: #fff;
+}
+.offer-item-desc{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #999;
+}
+
+/* 3.5-Service Section-------------------------------------------  */
+.service{
+    background: #f9f9f9;
+}
+.service-item{
+    float: left;
+    width: 50%;
+}
+.service-item .section-header{
+    text-align: left;
+}
+.service-item .section-header .line{
+    margin:0;/* to edit from genral*/
+
+    margin-bottom: 40px;
+}
+.service-item-desc{
+    padding-right: 20px;
+    color: #999;  
+    line-height: 1.5;
+    font-size: 17px;
+    margin-bottom:20px;
+}
+.service-list li{
+    margin-bottom: 12px;
+    color: #999;
+}
+.service-list li i{
+    color: #6195ff;
+    border: #6195ff 1px solid;
+    padding: 4px 2px;
+    border-radius: 50%;
+    margin-right: 3px;
+}
+.service-item-img img{
+    width: 100%;
+}
+
+.service-bollets{
+    text-align: center;
+}
+.service-bollets li{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background: #999;
+    margin: 10px 5px;
+    border-radius: 50%;
+}
+.service-bollets li.active,
+.service-bollets li:hover{
+    background: #6195ff;
+}
+/* 3.6-numbers Section-------------------------------------------  */
+.numbers{
+    position: relative;
+    background-image: url(../images/background/background2.webp);
+    height: 300px;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.numbers-items{
+    padding: 100px 0;
+}
+.numbers-item{
+    float: left;
+    width: 25%;
+    text-align: center;
+
+}
+.numbers-item .icon{
+    color: #6195ff;
+    margin-bottom: 15px;
+    font-size: 40px;
+}
+.numbers-item-title{
+    font-weight: bold;
+    color: #fff;
+    font-size: 30px;
+
+}
+.numbers-item-text{
+    color: #fff;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+/* 3.7-Prices Section-------------------------------------------  */
+
+.pricing-item{
+    float: left;
+    width: 30%;
+    text-align: center;
+    padding: 40px 15px;
+    border: 1px solid #e8e8e8;
+}
+
+.pricing-item.mg{
+    margin: 0 5%;
+}
+.pricing-item-text{
+    text-transform: uppercase;
+    font-size: 17px;
+    color: #999;
+    transition: color 0.5s;
+}
+.pricing-item-permonth{
+    width: 130px;
+    height: 130px;
+    padding: 25px 0;
+    margin: 20px auto;
+    border: 2px solid #6195ff;
+    border-radius: 50%;
+    transition: color 0.5s;
+}
+.pricing-item-permonth .doller{
+    font-size: 45px;
+}
+.pricing-item-permonth .month{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size:15px ;
+}
+.pricing-list li{
+    color: #999;
+    line-height: 1.8;
+}
+.pricing-item-purchase{
+    background: none;
+    border: 0;
+    display: block;
+    border:2px solid #6195ff;
+    padding: 10px;
+    width: 140px;
+    margin: 15px auto;
+    color: #6195ff;
+}
+.pricing-item:hover .pricing-item-permonth{
+    color: #fff;
+}
+.pricing-item:hover .pricing-item-text{
+    color: #6195ff;
+}
+/* 3.8-Testimonial Section---------------------------------------------  */
+.testimonial{
+    position: relative;
+    background-image: url(../images/background/background3.webp);
+    height: 400px;
+    background-attachment: fixed;
+    /* background-size:cover; */
+}
+.testimonial-item{
+    float: left;
+    width: 40%;
+    margin: 2%;
+    padding-top: 100px;
+    color: #fff;
+    /* background-color: red; */
+    position: relative;
+}
+.testimonial-item.mg{
+    margin-left: 8%;
+}
+.testimonial-item h2{
+    position: absolute;
+    font-size: 20px;
+    top: 110px;
+    left: 80px;
+}
+.testimonial-item span{
+    position: absolute;
+    color: #6195ff;
+    text-transform: uppercase;
+    font-size: 12px;
+    top: 140px;
+    left: 80px;
+}
+.testimonial-item p{
+    padding: 20px 0 0 5px;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+}
+.testimonial-item img{
+    border-radius: 50%;
+}
+/* 3.9-Team Sectoin------------------------------------------------  */
+.team-item{
+    width: 30%;
+    float: left;
+    background:#e8e8e8 ;
+    padding: 40px 10px;
+    text-align: center;
+}
+.team-item.mg{
+    margin: 0 5%;
+}
+.team-item .team-img{
+    width: 90%;
+    margin: auto;
+    position: relative;
+}
+.team-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgb(0, 0,0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s,visibility 0.5s;
+}
+.team-overlay a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: #6195ff;
+    color:#fff;
+    margin-left: auto;
+}
+.team-overlay a i{
+    line-height: 40px;
+}
+.team-item .team-img img{
+    width: 100%;
+}
+.team-item .team-info-title{
+    color: #222;
+    margin: 10px 0;
+
+    transition: color 0.5s;
+}
+.team-item .team-info-text{
+    color: #999;
+    text-transform: uppercase;
+    font-size: 15px;
+
+    transition: color 0.5s;
+}
+.team-item:hover .team-overlay{
+    opacity: 1;
+    visibility: visible;
+}
+.team-item.ttb-effect{
+    z-index: 1;
+}
+.team-item:hover .team-info-title{
+    color: #fff;
+}
+.team-item:hover .team-info-text{
+    color: #6195ff;
+}
+
+/* 3.10-blog Section------------------------------------------  */
+.blog{
+    background: #e8e8e8;
+}
+.blog-item{
+    width: 30%;
+    background: #fff;
+    padding-bottom: 32px;
+    float: left;
+}
+.blog-item.mg{
+    margin: 0 5%;
+}
+.blog-item img{
+    width: 100%;
+}
+.blog-item ul{
+    margin: 10px 5px;
+}
+.blog-item>ul>li{
+    float: left;
+    display: block;
+    padding: 3px 7px;
+    font-size: 13px;
+}
+.blog-item>ul>li>i{
+    color: #6195ff;
+    margin-right: 1px;
+}
+.blog-item .blog-item-title{
+   margin-left: 12px;
+   margin-right: 20px;
+   margin-bottom: 20px;
+}
+.blog-item .blog-item-desc{
+    margin-left: 12px;
+   margin-right: 20px;
+   margin-bottom: 15px;
+   color: #999;
+   line-height: 1.5;
+   font-size: 15px;
+}
+.blog-item a{
+    margin-left: 12px;
+    color: #6195ff;
+}
+/* 3.11-contact Sectoin-------------------------------------------  */
+
+.top-layer-item{
+    float: left;
+    width: 30%;
+    text-align: center;
+}
+.top-layer-item.mg{
+    margin: 0 5%;
+}
+.top-layer-item i{
+    color: #6195ff;
+}
+.top-layer-item h3{
+    margin: 10px 0;
+}
+.top-layer-item span{
+    color: #999;
+}
+
+
+
+.contact-form{
+    text-align: center;
+    margin-top: 50px;
+}
+.contact-form input,textarea{
+    background-color: #f8f8f8;
+    border: 0;
+    padding-left: 10px;
+    padding-top: 3px;
+}
+.contact-form>*{
+    margin: 0 auto 25px auto ;
+    width: 60%;
+    display: block;
+    height: 40px;
+    border-radius: 3px;
+}
+.contact-form>div{
+    position: relative;
+}
+.contact-form>div>*{
+    width: 49%;
+    height: 40px;
+    position: absolute;
+    top: 0;
+}
+.contact-form>div>.contact-name{
+    left: 0;
+}
+.contact-form>div>.contact-email{
+    right: 0;
+}
+.contact-form>.contact-message{
+    height: 60px;
+}
+.contact-form>.btn-send-messag{
+    width: 150px;
+    background-color: #6195ff;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+}
+.contact-form input:hover,
+.contact-form textarea:hover{
+    border: 1.5px solid #6195ff;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+    outline-color: #3175fd;
+}
+
+/* 3.12-Footer Sectoin-------------------------------------------  */
+.footer{
+    background: #1c1d21;
+    text-align: center;
+    padding: 60px 0;
+}
+.footer-links{
+    margin: 20px 0;
+}
+.footer-links li{
+    display: inline-block;
+}
+.footer-links li a{
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: #6195ff;
+    color: #fff;
+    margin: 0 5px;
+    border-radius: 25%;
+}
+.footer-links li a i{
+    line-height: 50px;
+}
+.footer .copyright{
+   color: #999;
+   text-transform: uppercase;
+   font-size: 15px;
+}
